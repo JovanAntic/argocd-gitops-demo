@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-app
+  namespace: prod
+  labels:
+    app: nginx-app
+    environment: prod
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30084
+  selector:
+    app: nginx-app

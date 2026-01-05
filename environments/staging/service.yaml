@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-app
+  namespace: staging
+  labels:
+    app: nginx-app
+    environment: staging
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30083
+  selector:
+    app: nginx-app

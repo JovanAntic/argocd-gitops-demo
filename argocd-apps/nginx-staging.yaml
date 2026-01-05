@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-staging
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/JovanAntic/argocd-gitops-demo
+    targetRevision: HEAD
+    path: environments/staging
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: staging
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
