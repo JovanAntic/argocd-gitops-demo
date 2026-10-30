@@ -37,7 +37,7 @@ spec:
           periodSeconds: 10
         readinessProbe:
           httpGet:
-            path: /nonexistent
-            port: 9999
+            path: /
+            port: 80
           initialDelaySeconds: 5
           periodSeconds: 5
