@@ -3,6 +3,12 @@ kind: Application
 metadata:
   name: nginx-prod
   namespace: argocd
+  annotations:
+    # SVE notifications za production!
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: argocd-prod
+    notifications.argoproj.io/subscribe.on-sync-failed.slack: argocd-prod
+    notifications.argoproj.io/subscribe.on-health-degraded.slack: argocd-prod
+    notifications.argoproj.io/subscribe.on-deployed.slack: argocd-prod
 spec:
   project: default
   source:
