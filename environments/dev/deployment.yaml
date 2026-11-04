@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:INVALID_TAG
+        image: nginx:alpine
         ports:
         - containerPort: 80
         resources:
